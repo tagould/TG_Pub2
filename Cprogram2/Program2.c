@@ -1,7 +1,8 @@
 /*
  * Program2.c
  *
- *  Created on: Feb 9, 2023
+ *  Created on: Feb 9, 2023 
+ *  Last modified: Feb 12, 2023
  *      Author: t813g195
  */
 #include <stdio.h>
@@ -16,16 +17,16 @@ void ScoreCombos(int Score)
     {
         for (TD_1 = 0; TD_1 <= (Score - (8 * TD_2)) / 7; TD_1++)    // checking for touchdowns with extra pt
         {
-            for (TD_0 = 0; TD_0 <= (Score - (8 * TD_2) - (7 * TD_1)) / 6; TD_0++)
+            for (TD_0 = 0; TD_0 <= (Score - (8 * TD_2) - (7 * TD_1)) / 6; TD_0++)   // checking for touchdown
             {
-                for (FG = 0; FG <= (Score - (8 * TD_2) - (7 * TD_1) - (6 * TD_0)) / 3; FG++)
+                for (FG = 0; FG <= (Score - (8 * TD_2) - (7 * TD_1) - (6 * TD_0)) / 3; FG++)    // checking for field goals
                 {
-                    for (SFT = 0; SFT <= (Score - (8 * TD_2) - (7 * TD_1) - (6 * TD_0) - (3 * FG)) / 2; SFT++)
+                    for (SFT = 0; SFT <= (Score - (8 * TD_2) - (7 * TD_1) - (6 * TD_0) - (3 * FG)) / 2; SFT++)  // checking for safety
                     {
-                        int combo = Score - (8 * TD_2) - (7 * TD_1) - (6 * TD_0) - (3 * FG) - (2 * SFT);
+                        int combo = Score - (8 * TD_2) - (7 * TD_1) - (6 * TD_0) - (3 * FG) - (2 * SFT);    // final combination
                         if (combo == 0)
                         {
-                            printf("%i TD + 2pt, %i TD + FG, %i TD, %i 3pt FG, %i Safety\n", TD_2, TD_1, TD_0, FG, SFT);
+                            printf("%i TD + 2pt, %i TD + FG, %i TD, %i 3pt FG, %i Safety\n", TD_2, TD_1, TD_0, FG, SFT);    // output to user
                         }
                     }
                 }
@@ -41,20 +42,19 @@ int main()
 
     do
     {
-        printf("\nEnter 0 or 1 to STOP\n");
+        printf("\nEnter 0 or 1 to STOP\n"); // stop message
         printf("Enter the NFL score:");
-        scanf("%i", &u_score);
-        if (u_score <= 1)
+        scanf("%i", &u_score);  // obtaining user input
+        if (u_score <= 1)   // check for valid input
         {
             stopcode = 0;
             printf("\nGo Chiefs!\n");
         }
         else
         {
-            ScoreCombos(u_score);
+            ScoreCombos(u_score);   // calulating score combinations
         }
-    } while (stopcode == 1);
-    
+    } while (stopcode == 1);    // stop condition check   
     
 
     return 0;
